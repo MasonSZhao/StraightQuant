@@ -15,11 +15,31 @@ endif()
 # Set the name of the project.
 project ("StraightQuant")
 
+# Glob all files ended with .h and .cpp in the folders.
+file (GLOB STRAIGHTSTOCK_HEADERS CONFIGURE_DEPENDS "include/StraightStock/StraightStock*.h")
+file (GLOB STRAIGHTSTOCK_SRCS CONFIGURE_DEPENDS "src/StraightStock/StraightStock*.cpp")
+
 # Add source to the project's executable application.
 add_executable (
 	StraightQuantExecute
 	"apps/StraightQuant.cpp" 
 	"apps/StraightQuant.h"
+	${STRAIGHTSTOCK_SRCS}
+	${STRAIGHTSTOCK_HEADERS}
+ )
+
+ # Add source to the project's static library.
+ add_library(
+	StraightStockStatic
+	STATIC
+	${STRAIGHTSTOCK_SRCS}
+	${STRAIGHTSTOCK_HEADERS}
+)
+
+# Add include directories to the project's static library.
+target_include_directories(
+	StraightStockStatic 
+	PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/StraightStock>"	
 )
 
 # Test option

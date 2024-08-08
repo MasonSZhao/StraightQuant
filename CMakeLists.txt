@@ -12,6 +12,12 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
+include(FetchContent)
+
+FetchContent_Declare(StraightOffice GIT_REPOSITORY https://github.com/MasonSZhao/StraightOffice)
+
+FetchContent_MakeAvailable(StraightOffice)
+
 # Set the name of the project.
 project ("StraightQuant")
 
@@ -30,7 +36,7 @@ add_executable (
 
  # Add source to the project's static library.
  add_library(
-	StraightStockStatic
+	StraightQuantStatic
 	STATIC
 	${STRAIGHTSTOCK_SRCS}
 	${STRAIGHTSTOCK_HEADERS}
@@ -38,7 +44,7 @@ add_executable (
 
 # Add include directories to the project's static library.
 target_include_directories(
-	StraightStockStatic 
+	StraightQuantStatic 
 	PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/StraightStock>"	
 )
 
@@ -54,3 +60,6 @@ if (STRAIGHTQUANT_BUILD_TESTS)
 	add_subdirectory("tests")
 
 endif()
+
+target_link_libraries(StraightQuantExecute StraightOfficeStatic)
+target_link_libraries(StraightQuantStatic StraightOfficeStatic)

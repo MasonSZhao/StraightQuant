@@ -4,7 +4,7 @@
 #include "..\..\include\StraightStock\StraightStockPrvols.h"
 
 namespace STRAIGHTSTOCK {
-const std::vector<std::chrono::year_month_day> StockPrvolDays::_vecSzShBjClose {
+const std::vector<std::chrono::year_month_day> StockPrvolDays::Festival::_vecSzShBjClose {
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(1) / std::chrono::day(1) /*Monday*/ }, /*New Year's Day*/
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(2) / std::chrono::day(9) /*Friday*/ },
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(2) / std::chrono::day(12) /*Monday*/ },
@@ -28,7 +28,7 @@ const std::vector<std::chrono::year_month_day> StockPrvolDays::_vecSzShBjClose {
 
 };
 
-const std::vector<std::chrono::year_month_day> StockPrvolDays::_vecSzShBjReopen {
+const std::vector<std::chrono::year_month_day> StockPrvolDays::Festival::_vecSzShBjReopen {
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(1) / std::chrono::day(2) /*Monday*/ }, /*New Year's Day*/
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(2) / std::chrono::day(19) /*Friday*/ },
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(2) / std::chrono::day(19) /*Monday*/ },
@@ -51,24 +51,24 @@ const std::vector<std::chrono::year_month_day> StockPrvolDays::_vecSzShBjReopen 
     std::chrono::year_month_day { std::chrono::year(2024) / std::chrono::month(10) / std::chrono::day(8) /*Monday*/ }, /*National Day*/
 };
 
-std::filesystem::path StockPrvolDays::_folderPath { "C:/new_tdx/vipdoc/" };
+std::filesystem::path StockPrvolDays::Read::_folderPath { "C:/new_tdx/vipdoc/" };
 
-[[nodiscard]] std::filesystem::path& StockPrvolDays::getFolderPath()
+[[nodiscard]] std::filesystem::path& StockPrvolDays::Read::getFolderPath()
 {
     return _folderPath;
 }
 
-void StockPrvolDays::setFolderPath(std::filesystem::path& val)
+void StockPrvolDays::Read::setFolderPath(std::filesystem::path& val)
 {
     _folderPath = val;
 }
 
-size_t StockPrvolDays::getFileCount()
+size_t StockPrvolDays::Read::getFileCount()
 {
     return _fileCount;
 }
 
-StockPrvolDays::StockPrvolDays(const char* exCode)
+StockPrvolDays::Read::Read(const char* exCode)
 {
     _filePath = _folderPath;
     if ('1' == exCode[0]) {

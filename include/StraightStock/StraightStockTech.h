@@ -3,9 +3,11 @@
 
 #pragma once
 
+#include <limits>
+
 namespace STRAIGHTSTOCK {
 /**
- * @brief Given the price in the base period, calculate the Limit Up-Limit Down price in the current period.
+ * @brief Given the price in the base period, calculates the Limit Up-Limit Down price in the current period.
  * @param val The price in the base period.
  * @param limit
  *     - 1.05: calculates the 5% limit up price.
@@ -17,5 +19,12 @@ namespace STRAIGHTSTOCK {
  * @return The Limit Up-Limit Down price in the current period.
  */
 [[nodiscard]] double stockTechLimitCur1(double val, double limit);
+
+/**
+ * @brief Given the exchange code, calculates the limit.
+ * @param exCode The exchange code.
+ * @return 0.3, 0.2, 0.1, Nan¡£
+ */
+[[nodiscard]] double stockTechLimit0(const char* exCode);
 
 }

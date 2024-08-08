@@ -17,10 +17,10 @@ SCENARIO("UnitTestStockPrvols", "[StockPrvols]")
             {
                 THEN("100 == size()")
                 {
-                    STRAIGHTSTOCK::StockPrvolDays dayPrvols("1603530");
+                    STRAIGHTSTOCK::StockPrvolDays::Read op("1603530");
                     std::vector<STRAIGHTSTOCK::StockPrvolDay> vecDayPrvol;
                     vecDayPrvol.reserve(100);
-                    dayPrvols.read<std::vector>(vecDayPrvol, 0, 100);
+                    op.operator()<std::vector>(vecDayPrvol, 0, 100);
                     if (true) {
                         size_t i { 0 };
                         for (const auto& e : vecDayPrvol) {

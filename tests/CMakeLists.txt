@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(UnitTestStockPrvols "UnitTestStockPrvols.cpp"  )
 
 # Specify libraries or flags to use when linking a given target and/or its dependents.
-target_link_libraries(UnitTestStockPrvols PUBLIC StraightStockStatic)
+target_link_libraries(UnitTestStockPrvols PUBLIC StraightQuantStatic)
 
 # Add a test to the project to be run by ctest.
 add_test(
@@ -17,7 +17,7 @@ add_test(
 add_executable(UnitTestStockTech "UnitTestStockTech.cpp"  )
 
 # Specify libraries or flags to use when linking a given target and/or its dependents.
-target_link_libraries(UnitTestStockTech PUBLIC StraightStockStatic)
+target_link_libraries(UnitTestStockTech PUBLIC StraightQuantStatic)
 
 # Add a test to the project to be run by ctest.
 add_test(
@@ -29,7 +29,7 @@ add_test(
 add_executable(UnitTestStockProducts "UnitTestStockProducts.cpp"  )
 
 # Specify libraries or flags to use when linking a given target and/or its dependents.
-target_link_libraries(UnitTestStockProducts PUBLIC StraightStockStatic)
+target_link_libraries(UnitTestStockProducts PUBLIC StraightQuantStatic)
 
 # Add a test to the project to be run by ctest.
 add_test(

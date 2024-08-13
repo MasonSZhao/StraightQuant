@@ -22,7 +22,7 @@ std::vector<StockProduct> StockProductsStockSzShBj::_vecProduct {};
 
 std::vector<double> StockProductsStockSzShBj::_vecExLimit {};
 
-std::unordered_map<const char*, size_t, StockConstCharPtrHasher, StockConstCharPrtComparer<>> StockProductsStockSzShBj::_lutExCode {};
+std::unordered_map<const char*, size_t, StockConstCharPtr::Hash, StockConstCharPtr::EqualTo<>> StockProductsStockSzShBj::_lutExCode {};
 
 std::vector<std::vector<StockPrvolDay>> StockProductsStockSzShBj::_vecVecPrvolDay {};
 
@@ -230,7 +230,7 @@ void StockProductsStockSzShBj::Read::operator()()
     }
     if ((true == _read00) || (true == _read30) || (true == _read60) || (true == _read68) || (true == _read43_83_87)) {
         for (size_t i { 0 }; i < _vecBlock->size(); ++i) {
-            _lutExCode->insert(std::unordered_map<const char*, size_t, StockConstCharPtrHasher, StockConstCharPrtComparer<>>::value_type(&(((*_vecBlock)[i])._exCode)[0], i));
+            _lutExCode->insert(std::unordered_map<const char*, size_t, StockConstCharPtr::Hash, StockConstCharPtr::EqualTo<>>::value_type(&(((*_vecBlock)[i])._exCode)[0], i));
         }
     }
     _vecVecPrvolDay->resize(_vecBlock->size());

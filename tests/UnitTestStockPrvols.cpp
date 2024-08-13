@@ -1,4 +1,4 @@
-#include "../../include/StraightStock/StraightStockPrvols.h"
+#include "..\..\include\StraightStock\StraightStockPrvols.h"
 
 /*
  * @details

@@ -55,7 +55,7 @@ public:
     /**
      * @brief The look up table of the stock block exchange names.
      */
-    static std::unordered_map<const char*, size_t, StockConstCharPtrHasher, StockConstCharPrtComparer<>> _lutExCode;
+    static std::unordered_map<const char*, size_t, StockConstCharPtr::Hash, StockConstCharPtr::EqualTo<>> _lutExCode;
 
     /**
      * @brief The vector of the StockPrvolDay collections.
@@ -125,7 +125,7 @@ public:
         /**
          * @brief The default destination.
          */
-        std::unordered_map<const char*, size_t, StockConstCharPtrHasher, StockConstCharPrtComparer<>>* _lutExCode = &StockProductsStockSzShBj::_lutExCode;
+        std::unordered_map<const char*, size_t, StockConstCharPtr::Hash, StockConstCharPtr::EqualTo<>>* _lutExCode = &StockProductsStockSzShBj::_lutExCode;
 
         /**
          * @brief The default destination.

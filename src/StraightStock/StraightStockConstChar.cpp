@@ -4,7 +4,7 @@
 #include "..\..\include\StraightStock\StraightStockConstChar.h"
 
 namespace STRAIGHTSTOCK {
-int StockConstCharPtrHasher::operator()(const char* a) const
+int StockConstCharPtr::Hash::operator()(const char* a) const
 {
     const static int seed { 131 };
     int hash { 0 };
